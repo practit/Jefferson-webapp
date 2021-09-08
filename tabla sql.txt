@@ -1,0 +1,11 @@
+create database jefferson;
+
+use jefferson;
+
+create table comida(codComida int primary key auto_increment, nombre varchar(100), precio float);
+
+create table cliente (codCliente int primary key auto_increment, barrio varchar(150), direccion varchar(150));
+
+create table pedido (codPedido int primary key auto_increment, fechaPedido date, estado int, codCliente int, foreign key codCliente references cliente(codCliente));
+
+create table cantPedido (codComida int, codPedido int, cantidad int, observación varchar(500), foreign key codComida references comida(codComida), foreign key codPedido references cliente(codCliente), primary key (codComida,codPedido));
