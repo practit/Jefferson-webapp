@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
     <link rel="stylesheet" href="master.css">
     <title>Pedidos</title>
   </head>
@@ -22,10 +23,12 @@
         </label>
         <br />
         <label>Barrio <br />
-          <select class="default_input" name="Barrio" class="Barrio">
-            <option value="Barrio 1">Barrio 1</option>
-            <option value="Barrio 2">Barrio 2</option>
-          </select>
+          <div class="select-wrapper">
+            <select class="Barrio" name="Barrio" >
+              <option value="Barrio 1">Barrio 1</option>
+              <option value="Barrio 2">Barrio 2</option>
+            </select>
+          </div>
           <br />
           <label>Observacion <br />
             <textarea name="Observación" id="" cols="30" rows="10"></textarea>
