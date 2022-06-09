@@ -1,6 +1,6 @@
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "./fbinstance.mjs";
-const coleccciones = {
+const collections = {
   pedido: {
     /**
      * Devuelve la estructura normal de un documento de pedido
@@ -33,10 +33,11 @@ const coleccciones = {
      * Inserta un valor a la colección pedido
      * @param {*} pedido Los datos del pedido
      */
-    insertar: pedido =>
-      addDoc(collection(db, "pedido"), pedido),
-    setear: (pedido_id, capital, merge) =>
+    add: pedido =>
+			addDoc(collection(db, "pedido"), pedido),
+		
+    set: (pedido_id, capital, merge) =>
       setDoc(doc(db,"pedido",pedido_id), { capital: capital }, { merge: merge })
   },
 };
-export default coleccciones;
+export default collections;
