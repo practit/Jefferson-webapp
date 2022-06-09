@@ -24,7 +24,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = "No implementado aun" || getAnalytics(app);
 const db = getFirestore(app);
 const auth = getAuth();
-// Use auth emulator on development
+// Use emulators on development
 if (use_emulators) {
 	connectAuthEmulator(auth, "http://localhost:9099");
 	connectFirestoreEmulator(db, "localhost", 8080);
