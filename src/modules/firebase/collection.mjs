@@ -2,26 +2,32 @@ import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "./fbinstance.mjs";
 const coleccciones = {
   pedido: {
-    plantilla: {
-      observacion: "",
-      comida: [
-        {
-          comida_id: "",
-          cantidad: 1,
-        },
-      ],
-      direccion: {
-        barrio_id: "",
-        precio: 0,
-      },
-      estado: {
-        cancelado: false,
-        enviado: false,
-        pagado: false,
-        preparado: false,
-      },
-      nombre: "",
-      pedido_fecha: new Date(),
+    /**
+     * Devuelve la estructura normal de un documento de pedido
+     * @returns Plantilla de pedido
+     */
+    plantilla: () => {
+      return {
+				observacion: "",
+				comida: [
+					{
+						comida_id: "",
+						cantidad: 1,
+					},
+				],
+				direccion: {
+					barrio_id: "",
+					precio: 0,
+				},
+				estado: {
+					cancelado: false,
+					enviado: false,
+					pagado: false,
+					preparado: false,
+				},
+				nombre: "",
+				pedido_fecha: new Date(),
+			};
     },
     /**
      * Inserta un valor a la colección pedido

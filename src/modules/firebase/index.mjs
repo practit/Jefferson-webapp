@@ -15,5 +15,5 @@ const pedido = {
   nombre: "Juan otra vez",
   pedido_fecha: new Date()
 }
-const run = async () => console.log(await coleccion.pedido.insertar(coleccion.pedido.plantilla))
+const run = async () => console.log(await coleccion.pedido.insertar(coleccion.pedido.plantilla()))
 run()
