@@ -27,6 +27,6 @@ const auth = getAuth();
 // Use emulators on development
 if (use_emulators) {
 	connectAuthEmulator(auth, "http://localhost:9099");
-	connectFirestoreEmulator(db, "localhost", 8080);
+	connectFirestoreEmulator(db, "localhost", 8081);
 }
 export { firebaseConfig, app, analytics, db, auth };
