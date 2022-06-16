@@ -12,16 +12,18 @@
             "label": "Start firebase emulators",
             "type": "shell",
             "options": {
-                "cwd": "./src/modules/firebase/emulator"
+                "cwd": "${workspaceFolder}/src/modules/firebase/emulator"
             },
-            "command": "firebase emulators:start --import ./demo_data --export-on-exit",
-            "problemMatcher": []
+            "command": "firebase emulators:start --import ${cwd}/demo_data --export-on-exit",
+            "problemMatcher": [],
+            "isBackground": true
         },
         {
             "label": "Start react server",
             "type": "shell",
             "command": "npm start",
-            "problemMatcher": []
+            "problemMatcher": [],
+            "isBackground": true
         },
         {
             "label": "Start emulators and server",
@@ -29,7 +31,8 @@
                 "Start firebase emulators",
                 "Start react server"
             ],
-            "problemMatcher": []
+            "problemMatcher": [],
+            "isBackground": true
         }
     ]
 }
