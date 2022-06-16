@@ -3,7 +3,9 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { connectFirestoreEmulator, getFirestore } from "firebase/firestore";
 import { getAuth, connectAuthEmulator } from "firebase/auth";
-const use_emulators = true;
+const use_emulators = process.env.DEVELOPMENT_MODE === "1";
+const AUTH_PORT = process.env.AUTH_EMULATOR_PORT || "9099";
+const FIRESTORE_PORT = parseInt(process.env.FIRESTORE_EMULATOR_PORT) || 8080;
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -26,7 +28,7 @@ const db = getFirestore(app);
 const auth = getAuth();
 // Use emulators on development
 if (use_emulators) {
-	connectAuthEmulator(auth, "http://localhost:9099");
-	connectFirestoreEmulator(db, "localhost", 8081);
+	connectAuthEmulator(auth, "http://localhost:"+AUTH_PORT);
+	connectFirestoreEmulator(db, "localhost", FIRESTORE_PORT);
 }
 export { firebaseConfig, app, analytics, db, auth };

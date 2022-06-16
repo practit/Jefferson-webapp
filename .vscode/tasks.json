@@ -2,6 +2,11 @@
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "2.0.0",
+    "options": {"env": {
+        "DEVELOPMENT_MODE": "1",
+        "FIRESTORE_EMULATOR_PORT": "8084",
+        "AUTH_EMULATOR_PORT": "9099"
+    }},
     "tasks": [
         {
             "label": "Start firebase emulators",
@@ -9,7 +14,21 @@
             "options": {
                 "cwd": "./src/modules/firebase/emulator"
             },
-            "command": "firebase emulators:start",
+            "command": "firebase emulators:start --import ./demo_data --export-on-exit",
+            "problemMatcher": []
+        },
+        {
+            "label": "Start react server",
+            "type": "shell",
+            "command": "npm start",
+            "problemMatcher": []
+        },
+        {
+            "label": "Start emulators and server",
+            "dependsOn": [
+                "Start firebase emulators",
+                "Start react server"
+            ],
             "problemMatcher": []
         }
     ]
