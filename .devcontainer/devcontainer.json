@@ -37,7 +37,8 @@
 		"sshd": "latest",
 		"fish": "latest",
 		"python": "latest",
-		"powershell": "latest"
+		"powershell": "latest",
+		"java": "latest"
 	},
 	"postCreateCommand": "./.devcontainer/postCreateCommand.sh"
 }
