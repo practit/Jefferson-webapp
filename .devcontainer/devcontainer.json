@@ -38,5 +38,6 @@
 		"fish": "latest",
 		"python": "latest",
 		"powershell": "latest"
-	}
+	},
+	"postCreateCommand": "./.devcontainer/postCreateCommand.sh"
 }
