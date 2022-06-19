@@ -18,7 +18,8 @@
 			"extensions": [
 				"dbaeumer.vscode-eslint",
 				"ms-vsliveshare.vsliveshare",
-				"ms-vsliveshare.vsliveshare-audio"
+				"ms-vsliveshare.vsliveshare-audio",
+				"eamodio.gitlens"
 			]
 		}
 	},
