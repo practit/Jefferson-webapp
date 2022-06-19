@@ -2,10 +2,15 @@
   --primary_color:#f4c35c ;
   --secondary_color:#f5ae11;
   --background_color: firebrick;
+  --background_dark: #282c34;
 }
 
 .App {
+  display: flex;
   text-align: center;
+  color: white;
+  background-color: var(--background_dark);
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -53,4 +58,82 @@
   to {
     transform: rotate(360deg);
   }
+}
+.button_like_logo {
+  background-color: var(--background_dark);
+  border-radius: 0.5rem;
+
+  height: min-content;
+  flex:1;
+}
+.sidebar {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: var(--primary_color);
+  margin: 0px;
+  padding: 0.5rem;
+  max-width: 2rem;
+  border-radius: 0px 0.5rem 0.5rem 0px;
+  justify-content: space-between;
+}
+.sidebar_ul{
+  display: flex;
+  padding: 0px;
+  gap: 0.35rem;
+  flex-direction: column;
+  list-style: none;
+
+}
+.sidebar_btn,
+.sidebar_btn_2 {
+  color: white;
+  padding: 0.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  aspect-ratio: 1/1;
+  align-content: center;
+  justify-content: center;
+  transition: ease-in-out background-color 50ms;
+}
+.sidebar_btn{
+  background-color: var(--secondary_color);
+}
+.sidebar_btn_2{
+  background-color: transparent;
+}
+.sidebar_btn:hover,
+.sidebar_btn_2:hover,
+.formBtn:hover{
+  background-color: var(--background_color);
+}
+.sidebar_btn:active,
+.sidebar_btn_2:active,
+.formBtn:active {
+  background-color: black;
+}
+.sidebar_li_icon{
+  width: 100%;
+  height: 100%;
+}
+.Editor {
+  display: flex;
+  flex: 1 1;
+  align-items: center;
+  justify-content: center;
+}
+.loginForm {
+  display: flex;
+  flex-flow: column;
+}
+.formBtn {
+  background-color: var(--secondary_color);
+  color: white;
+  font-weight: bold;
+  padding: 0.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  align-content: center;
+  justify-content: center;
+  transition: ease-in-out background-color 50ms;
 }

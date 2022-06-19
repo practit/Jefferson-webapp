@@ -1,18 +1,25 @@
-import logo from './jefferson_logo.png';
-import react_logo from './react_logo.svg';
 import './App.css';
-
+import WIP from './pages/WIP.js'
+import Usuarios from './pages/Usuarios.js'
+import Sidebar from './components/sidebar'
+import { useState } from 'react';
 function App() {
+  const [editor, setEditor] = useState(<WIP />)
+  function selectEditor(editor) {
+    switch (editor) {
+      case "Usuarios":
+        setEditor(<Usuarios />)
+        break;
+      default:
+        setEditor(<WIP />)
+    }
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>
-          Trabajo en proceso...
-        </h1>
-        <p className='con-amors'>Con ❤ y <img src={react_logo} className="App-logo-pequenio" alt="react logo" />
-        </p>
-      </header>
+      <Sidebar selectEditor={selectEditor} />
+      <div className='Editor'>
+        {editor}
+      </div>
     </div>
   );
 }
