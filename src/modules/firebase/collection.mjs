@@ -4,9 +4,10 @@ const collections = {
   pedido: {
     /**
      * Devuelve la estructura normal de un documento de pedido
+		 * @param {*} obj Datos
      * @returns Plantilla de pedido
      */
-    plantilla: () => {
+    plantilla: (obj) => {
       return {
 				observacion: "",
 				comida: [
@@ -30,6 +31,7 @@ const collections = {
 				},
 				nombre: "",
 				pedido_fecha: new Date(),
+				...obj
 			};
     },
     /**

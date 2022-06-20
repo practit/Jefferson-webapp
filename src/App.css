@@ -137,3 +137,39 @@
   justify-content: center;
   transition: ease-in-out background-color 50ms;
 }
+
+.editorPedidos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-basis: max-content;
+    padding: 2rem;
+}
+.PedidoBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: black;
+    background: var(--primary_color);
+    background: linear-gradient(180deg, var(--primary_color) 0%, var(--secondary_color) 100%);
+    padding: 1rem;
+    box-shadow: 3px 5px 5px rgb(0 0 0 / 25%);
+    flex: auto;
+    min-height: 100px;
+}
+.PedidoBoxButtons {
+    display: flex;
+    color: white;
+    padding: 0px;
+    gap: 0.35rem;
+    flex-direction: row;
+    list-style: none;
+    margin: 0px;
+    margin-bottom: 1rem;
+    justify-content: flex-end;
+  }

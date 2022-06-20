@@ -1,4 +1,5 @@
 function Inicio() {
+  console.log("Inicio")
   return (
     <div>
       <h1>Inicio</h1>
