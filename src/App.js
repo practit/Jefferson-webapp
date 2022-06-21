@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-import 'react-pro-sidebar/dist/css/styles.css';
 import Sidebar from './components/sidebar';
 import Estadistica from './pages/Estadistica';
 import Informacion from './pages/Informacion';
