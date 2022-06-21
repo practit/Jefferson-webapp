@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, setDoc, writeBatch } from "firebase/firestore";
+import { addDoc, collection, doc, getDocs, query, setDoc, writeBatch } from "firebase/firestore";
 import { db } from "./fbinstance.mjs";
 const collections = {
   pedido: {
@@ -62,8 +62,22 @@ const collections = {
 		 * @returns 
 		 */
 		set: (pedido_id, pedido, merge) =>
-			setDoc(doc(db,"pedido",pedido_id), pedido, { merge: merge })
+			setDoc(doc(db,"pedido",pedido_id), pedido, { merge: merge }),
 			
-  },
+		get: async e => {
+				
+		const q = query(collection(db, "pedido"));
+		const pedidosData = [];		
+		const querySnapshot = await getDocs(q);
+		querySnapshot.forEach((doc) => {
+			// doc.data() is never undefined for query doc snapshots
+			;
+			// console.log(doc.id, " => ", docData);
+			pedidosData.push({ ...doc.data(), id: doc.id });
+		});
+			return pedidosData;
+	},
+		
+	}
 };
 export default collections;

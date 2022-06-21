@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Pedido from '../components/Pedido_box'
 import collections from '../modules/firebase/collection.mjs'
 import {nanoid} from 'nanoid'
@@ -9,9 +9,11 @@ const pedidos_demo = [
   p({id:nanoid(), observacion:""}),
 ]
 function Pedidos() {
-  const [pedidos, setPedidos] = useState(pedidos_demo);
-  console.log(pedidos)
+  const [pedidos, setPedidos] = useState([]);
+  useEffect(() => {
+    collections.pedido.get().then(e => setPedidos(e))
 
+  }, []);
   console.log("pedidos")
   return (
     <div className="editorPedidos">
