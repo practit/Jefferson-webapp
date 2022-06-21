@@ -76,6 +76,38 @@
   max-width: 2rem;
   border-radius: 0px 0.5rem 0.5rem 0px;
   justify-content: space-between;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: ease-in-out left 250ms;
+  z-index: 2;
+}
+.sidebarHidden{
+  left: -100vw;
+  position: fixed;
+}
+.sidebarReveal {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: var(--primary_color);
+  margin: 0px;
+  padding: 0.5rem;
+  max-width: 2rem;
+  height: fit-content;
+  border-radius: 0px 0.5rem 0.5rem 0px;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+}
+.sidebarReveal_ul {
+  display: flex;
+  padding: 0px;
+  gap: 0.35rem;
+  margin: 0px;
+  flex-direction: column;
+  list-style: none;
 }
 .sidebar_ul{
   display: flex;
@@ -121,6 +153,7 @@
   flex: 1 1;
   align-items: center;
   justify-content: center;
+  z-index: 0;
 }
 .loginForm {
   display: flex;
@@ -161,6 +194,10 @@
     box-shadow: 3px 5px 5px rgb(0 0 0 / 25%);
     flex: auto;
     min-height: 100px;
+    transition: ease-in-out box-shadow 100ms;
+  }
+  .PedidoBox:hover{
+    box-shadow: 0px 0px 10px white;
 }
 .PedidoBoxButtons {
     display: flex;
@@ -173,3 +210,6 @@
     margin-bottom: 1rem;
     justify-content: flex-end;
   }
+.PedidoBoxButton{
+  aspect-ratio: 1/1;
+}
