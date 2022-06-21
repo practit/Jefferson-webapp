@@ -92,14 +92,19 @@
   flex-direction: column;
   background-color: var(--primary_color);
   margin: 0px;
-  padding: 0.5rem;
+  padding: 0.25rem 0.25rem 0.25rem 0rem;
   max-width: 2rem;
   height: fit-content;
   border-radius: 0px 0.5rem 0.5rem 0px;
   justify-content: space-between;
   position: fixed;
   bottom: 0;
+  left:-2rem;
   z-index: 1;
+  transition: ease-in-out left 250ms;
+}
+.sidebarReveal:hover {
+  left:0;
 }
 .sidebarReveal_ul {
   display: flex;
@@ -108,6 +113,16 @@
   margin: 0px;
   flex-direction: column;
   list-style: none;
+}
+.sidebarReveal_btn {
+  color: white;
+  padding: 0.25rem 0.25rem 0.25rem 0.5rem ;
+  border: none;
+  border-radius: 0.0rem 0.5rem 0.5rem 0.0rem;
+  aspect-ratio: 1/1;
+  align-content: center;
+  justify-content: center;
+  transition: ease-in-out background-color 50ms;
 }
 .sidebar_ul{
   display: flex;
@@ -128,7 +143,8 @@
   justify-content: center;
   transition: ease-in-out background-color 50ms;
 }
-.sidebar_btn{
+.sidebar_btn,
+.sidebarReveal_btn {
   background-color: var(--secondary_color);
 }
 .sidebar_btn_2{
@@ -136,6 +152,7 @@
 }
 .sidebar_btn:hover,
 .sidebar_btn_2:hover,
+.sidebarReveal_btn:hover,
 .formBtn:hover{
   background-color: var(--background_color);
 }

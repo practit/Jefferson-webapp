@@ -33,7 +33,7 @@ function Sidebar(props) {
       </div>
       <div className='sidebarReveal'>
         <ul className='sidebarReveal_ul'>
-          <SidebarBtn className='sidebar_btn_2' icon={faAnglesRight} hideNavbar={toggleNavbarHide}/>
+          <SidebarBtn className='sidebarReveal_btn' icon={faAnglesRight} hideNavbar={toggleNavbarHide}/>
         </ul>
       </div>
     </>
