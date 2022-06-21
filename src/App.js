@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
 import Sidebar from './components/sidebar';
 import Estadistica from './pages/Estadistica';
@@ -9,7 +8,6 @@ import Pedidos from './pages/Pedidos';
 import Inicio from './pages/Inicio';
 import Usuarios from './pages/Usuarios';
 import WIP from './pages/WIP.js';
-import { faGem, faHeart } from '@fortawesome/free-solid-svg-icons';
 function App() {
   const [editor, setEditor] = useState(<Inicio />)
   function selectEditor(editor) {
