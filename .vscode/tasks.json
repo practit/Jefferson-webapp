@@ -3,9 +3,10 @@
     // for the documentation about the tasks.json format
     "version": "2.0.0",
     "options": {"env": {
-        "DEVELOPMENT_MODE": "1",
-        "FIRESTORE_EMULATOR_PORT": "8084",
-        "AUTH_EMULATOR_PORT": "9099"
+        "REACT_APP_DEVELOPMENT_MODE": "1",
+        "REACT_APP_FIRESTORE_EMULATOR_PORT": "8084",
+        "REACT_APP_AUTH_EMULATOR_PORT": "9099",
+        "REACT_APP_REPORT_WEB_VITALS": ""
     }},
     "tasks": [
         {
