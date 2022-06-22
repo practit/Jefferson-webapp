@@ -153,7 +153,8 @@
 .sidebar_btn:hover,
 .sidebar_btn_2:hover,
 .sidebarReveal_btn:hover,
-.formBtn:hover{
+.formBtn:hover,
+.formBtn2:hover{
   background-color: var(--background_color);
 }
 .sidebar_btn:active,
@@ -178,6 +179,17 @@
 }
 .formBtn {
   background-color: var(--secondary_color);
+  color: white;
+  font-weight: bold;
+  padding: 0.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  align-content: center;
+  justify-content: center;
+  transition: ease-in-out background-color 50ms;
+}
+.formBtn2 {
+  background-color: var(--background_dark);
   color: white;
   font-weight: bold;
   padding: 0.25rem;
@@ -229,4 +241,27 @@
   }
 .PedidoBoxButton{
   aspect-ratio: 1/1;
+}
+.PedidoBoxForm {
+  display: flex;
+  flex-direction: column;
+
+}
+.PedidoBoxFormEl {
+  flex: 1;
+  resize: none;
+  word-break: keep-all;
+  background: transparent;
+  border: none;
+  text-align: center;
+}
+.PedidoBoxFormEl[name=Nombre] {
+  font-size: x-large;
+  font-weight: bold;
+}
+.PedidoBoxContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: stretch;
 }

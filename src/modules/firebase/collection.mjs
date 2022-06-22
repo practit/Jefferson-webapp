@@ -1,5 +1,10 @@
 import { addDoc, collection, doc, getDocs, query, setDoc, writeBatch } from "firebase/firestore";
 import { db } from "./fbinstance.mjs";
+function toDateTime(secs) {
+	var t = new Date(1970, 0, 1); // Epoch
+	t.setSeconds(secs);
+	return t;
+}
 const collections = {
   pedido: {
     /**
@@ -73,7 +78,9 @@ const collections = {
 			// doc.data() is never undefined for query doc snapshots
 			;
 			// console.log(doc.id, " => ", docData);
-			pedidosData.set(doc.id, doc.data());
+			const docData = doc.data();
+			docData.pedido_fecha = toDateTime(docData.pedido_fecha.seconds)
+			pedidosData.set(doc.id, docData);
 		});
 			return pedidosData;
 	},
