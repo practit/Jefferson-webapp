@@ -67,13 +67,13 @@ const collections = {
 		get: async e => {
 				
 		const q = query(collection(db, "pedido"));
-		const pedidosData = [];		
+		const pedidosData = new Map();		
 		const querySnapshot = await getDocs(q);
 		querySnapshot.forEach((doc) => {
 			// doc.data() is never undefined for query doc snapshots
 			;
 			// console.log(doc.id, " => ", docData);
-			pedidosData.push({ ...doc.data(), id: doc.id });
+			pedidosData.set(doc.id, doc.data());
 		});
 			return pedidosData;
 	},
