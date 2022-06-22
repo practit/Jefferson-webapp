@@ -27,7 +27,8 @@ function PedidoBox({ PedidoData, pedId, editMode:em }) {
   };
   const setViewModeDiscard = (e) => {
     setEdittingData(false);
-		setEditMode(0);
+    setEditMode(0);
+    setEdittingP(p);
   }
   const setEditionMode = (e) => {setEdittingData(true); setEditMode(1) };
   const setDeleteMode = (e) => setEditMode(2);

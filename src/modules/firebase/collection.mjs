@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDocs, query, setDoc, writeBatch } from "firebase/firestore";
+import { addDoc, collection, doc, getDocs, orderBy, query, setDoc, writeBatch } from "firebase/firestore";
 import { db } from "./fbinstance.mjs";
 function toDateTime(secs) {
 	var t = new Date(1970, 0, 1); // Epoch
@@ -71,7 +71,7 @@ const collections = {
 			
 		get: async e => {
 				
-		const q = query(collection(db, "pedido"));
+		const q = query(collection(db, "pedido"), orderBy("pedido_fecha", "desc"));
 		const pedidosData = new Map();		
 		const querySnapshot = await getDocs(q);
 		querySnapshot.forEach((doc) => {
