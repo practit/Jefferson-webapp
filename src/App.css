@@ -11,6 +11,11 @@
   color: white;
   background-color: var(--background_dark);
   min-height: 100vh;
+  background-color: #282c34;
+    opacity: 1;
+    background-image: linear-gradient(30deg, #363636 12%, transparent 12.5%, transparent 87%, #363636 87.5%, #363636), linear-gradient(150deg, #363636 12%, transparent 12.5%, transparent 87%, #363636 87.5%, #363636), linear-gradient(30deg, #363636 12%, transparent 12.5%, transparent 87%, #363636 87.5%, #363636), linear-gradient(150deg, #363636 12%, transparent 12.5%, transparent 87%, #363636 87.5%, #363636), linear-gradient(60deg, #36363677 25%, transparent 25.5%, transparent 75%, #36363677 75%, #36363677), linear-gradient(60deg, #36363677 25%, transparent 25.5%, transparent 75%, #36363677 75%, #36363677);
+    background-size: 38px 67px;
+    background-position: 0 0, 0 0, 19px 33px, 19px 33px, 0 0, 19px 33px;
 }
 
 .App-logo {
@@ -73,7 +78,7 @@
   background-color: var(--primary_color);
   margin: 0px;
   padding: 0.5rem;
-  max-width: 2rem;
+  max-width: 2.5rem;
   border-radius: 0px 0.5rem 0.5rem 0px;
   justify-content: space-between;
   left: 0;
@@ -199,7 +204,10 @@
   justify-content: center;
   transition: ease-in-out background-color 50ms;
 }
-
+.settingsForm {
+  display: flex;
+  flex-flow: column;
+}
 .editorPedidos {
     display: flex;
     flex-wrap: wrap;
@@ -241,6 +249,9 @@
   }
 .PedidoBoxButton{
   aspect-ratio: 1/1;
+}
+.PedidoBoxButtonCheckbox {
+  border: none;
 }
 .PedidoBoxForm {
   display: flex;
