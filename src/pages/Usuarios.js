@@ -2,9 +2,12 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../modules/firebase/fbinstance.mjs";
 const errorCodesStr = {
-	"auth/missing-email": "El campo de email está vacío ",
-	"auth/user-not-found": "Usuario no encontrado",
+	"auth/missing-email": "El campo de e-mail está vacío.",
+	"auth/user-not-found": "Usuario no encontrado.",
+	"auth/invalid-email": "El e-mail introducido no es válido.",
 	"auth/wrong-password": "La contraseña ingresada no es correcta.",
+	"auth/network-request-failed":
+		"No se ha podido conectar con la base de datos.",
 	"auth/logged-in": "Inició sesion exitosamente",
 	"auth/logged-out": "Cerró sesion exitosamente",
 };
@@ -15,15 +18,14 @@ try {
 	const idleDetector = new window.IdleDetector();
 	idleDetector.addEventListener("change", () => {
 		const userState = idleDetector.userState;
-    // const screenState = idleDetector.screenState;
-    if(userState === "idle") auth.signOut()
+		// const screenState = idleDetector.screenState;
+		if (userState === "idle") auth.signOut();
 		// console.log(`Idle change: ${userState}, ${screenState}.`);
-  });
-  idleDetector.start({
+	});
+	idleDetector.start({
 		threshold: 1000 * 60 * 5,
 		signal,
 	});
-
 } catch (error) {
 	console.log("Idle detector error:", error);
 }
@@ -51,7 +53,7 @@ function Usuarios() {
 			})
 			.catch((e) => setErrorCode(e.code));
 	}
-  // #region Menu Editor
+	// #region Menu Editor
 	if (editorState === "menu" && auth.currentUser)
 		return (
 			<div className="usersMenu">
@@ -63,7 +65,9 @@ function Usuarios() {
 				)}
 				<p>E-mail: {auth.currentUser.email}</p>
 				<button className="usersMenuButtons">Cambiar e-mail</button>
-				<button className="usersMenuButtons usersGrid2">Cambiar contraseña</button>
+				<button className="usersMenuButtons usersGrid2">
+					Cambiar contraseña
+				</button>
 				<button
 					className="formBtn"
 					onClick={(e) => {
@@ -76,8 +80,8 @@ function Usuarios() {
 				</button>
 			</div>
 		);
-  // #endregion Menu Editor
-  // #region Login Editor
+	// #endregion Menu Editor
+	// #region Login Editor
 	if (editorState === "login")
 		return (
 			<div>
@@ -91,9 +95,10 @@ function Usuarios() {
 					<label htmlFor="Usuario">E-Mail: </label>
 					<input
 						id="Usuario"
-						type="text"
+						type="email"
 						name="user"
 						value={formData.user}
+						autoFocus
 						required
 					/>
 					<label htmlFor="Contrasenia">Contraseña: </label>
@@ -111,8 +116,8 @@ function Usuarios() {
 					<input type="submit" className="formBtn" value="Iniciar Sesión" />
 				</form>
 			</div>
-    );
-  // #endregion Login Editor
+		);
+	// #endregion Login Editor
 }
 
 export default Usuarios;
