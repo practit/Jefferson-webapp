@@ -178,10 +178,13 @@
   z-index: 0;
 }
 .loginForm {
-  display: flex;
-  flex-flow: column;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: .5rem .25rem;
 }
 .formBtn {
+  grid-column-start: -3;
+  grid-column-end: -1;
   background-color: var(--secondary_color);
   color: white;
   font-weight: bold;
@@ -203,7 +206,28 @@
   justify-content: center;
   transition: ease-in-out background-color 50ms;
 }
+.formcb {
+  grid-column-start: -3;
+  grid-column-end: -1;
+}
 /* #endregion */
+/* #region Editor Usuarios */
+.usersMenu {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: auto repeat(2);
+}
+.usersGrid2 {
+  grid-column-start: -3;
+  grid-column-end: -1;
+}
+.usersMenuButtons {
+  background-color: var(--background_dark);
+  color: white;
+  font-weight: bold;
+}
+
+/* #endregion Editor Usuarios */
 /* #region Editor Pedidos */
 .editorPedidos {
     display: flex;

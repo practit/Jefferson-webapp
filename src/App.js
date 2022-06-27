@@ -8,7 +8,7 @@ import Inicio from './pages/Inicio';
 import Usuarios from './pages/Usuarios';
 import WIP from './pages/WIP.js';
 function App() {
-  const [editor, setEditor] = useState(<Inicio />)
+  const [editor, setEditor] = useState(<Usuarios />)
   function selectEditor(editor) {
     switch (editor) {
       case "Inicio":
