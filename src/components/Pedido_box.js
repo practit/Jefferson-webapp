@@ -5,6 +5,7 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import collections from "../modules/firebase/collection.mjs";
 function PedidoBox({ PedidoData, pedId, editMode:em }) {
+  // #region States
   /*
   Edition modes
   0 = View
@@ -16,6 +17,8 @@ function PedidoBox({ PedidoData, pedId, editMode:em }) {
   const [p, setP] = useState(PedidoData);
   const [edittingP, setEdittingP] = useState(p);
   const [editingData, setEdittingData] = useState(false);
+  // #endregion States
+  // #region editMode setters
   const setViewMode = (e) => {
     if (editingData) {
       const edp = {...edittingP}
@@ -32,6 +35,8 @@ function PedidoBox({ PedidoData, pedId, editMode:em }) {
   }
   const setEditionMode = (e) => {setEdittingData(true); setEditMode(1) };
   const setDeleteMode = (e) => setEditMode(2);
+  // #endregion
+  // #region data handlers
   function handleInput(event, data) {
     console.log(data, event.target.value, edittingP)
     const obj = { ...edittingP }
@@ -42,7 +47,9 @@ function PedidoBox({ PedidoData, pedId, editMode:em }) {
     event.preventDefault()
     setViewMode()
   }
+  // #endregion data handlers
   if (!p) return (<div className="PedidoBox"></div>)
+  // #region View mode
   if(editMode === 0) return (<div className="PedidoBox">
     <ul className="PedidoBoxButtons">
       <li onClick={setEditionMode}><FontAwesomeIcon icon={faPencil} /></li>
@@ -54,6 +61,8 @@ function PedidoBox({ PedidoData, pedId, editMode:em }) {
       <p>{moment(p.pedido_fecha).format("DD/MM/YYYY HH:MM")}</p>
     </div>
   </div>)
+  // #endregion View mode
+  // #region Edit mode
   if(editMode === 1) return (<div className="PedidoBox">
     <ul className="PedidoBoxButtons">
       <li>Editando pedido</li>
@@ -73,6 +82,7 @@ function PedidoBox({ PedidoData, pedId, editMode:em }) {
       <p>{moment(edittingP.pedido_fecha).format("DD/MM/YYYY HH:MM")}</p>
     </div>
   </div>)
+  // #endregion
 }
 
 export default PedidoBox;
