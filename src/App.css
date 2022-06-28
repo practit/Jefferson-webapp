@@ -98,6 +98,7 @@
   flex: 1;
   flex-direction: column;
   background-color: var(--primary_color);
+  margin-bottom: 1.25rem;
   margin: 0px;
   padding: 0.25rem 0.25rem 0.25rem 0rem;
   max-width: 2rem;
