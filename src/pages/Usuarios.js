@@ -8,7 +8,8 @@ const errorCodesStr = {
 	"auth/wrong-password": "La contraseña ingresada no es correcta.",
 	"auth/network-request-failed":
 		"No se ha podido conectar con la base de datos.",
-		"auth/too-many-requests":"Demasiadas peticiones de logueo, por favor espere unos minutos e intentelo nuevamente.",
+	"auth/too-many-requests":
+		"Demasiadas peticiones de logueo, por favor espere unos minutos e intentelo nuevamente.",
 	"auth/logged-in": "Inició sesion exitosamente",
 	"auth/logged-out": "Cerró sesion exitosamente",
 };
@@ -61,7 +62,9 @@ function Usuarios() {
 	if (editorState === "menu" && auth.currentUser)
 		return (
 			<div className="usersMenu">
-				<h1 className="usersGrid2">¡Hola {auth.currentUser.displayName}!</h1>
+				<h1 className="usersGrid2">
+					¡Hola{auth.currentUser ? " " + auth.currentUser.displayName : ""}!
+				</h1>
 				{auth.currentUser.photoURL ? (
 					<img src={auth.currentUser.photoURL} alt="Foto del usuario" />
 				) : (
