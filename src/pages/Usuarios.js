@@ -37,6 +37,7 @@ function Usuarios() {
 	);
 	const [formData, setFormData] = useState({ user: "", passwd: "" });
 	const [errorCode, setErrorCode] = useState("");
+	// #region Function Handlers
 	function handleInput(e) {
 		setFormData((fd) => {
 			return { ...fd, [e.target.name]: e.target.value };
@@ -45,6 +46,7 @@ function Usuarios() {
 	function handleLoginSubmit(e) {
 		e.preventDefault();
 		window.IdleDetector.requestPermission();
+
 		signInWithEmailAndPassword(auth, formData.user, formData.passwd)
 			.then((e) => {
 				console.log(e);
@@ -53,6 +55,7 @@ function Usuarios() {
 			})
 			.catch((e) => setErrorCode(e.code));
 	}
+	// #endregion Function Handlers
 	// #region Menu Editor
 	if (editorState === "menu" && auth.currentUser)
 		return (
