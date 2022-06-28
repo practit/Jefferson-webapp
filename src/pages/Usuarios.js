@@ -63,7 +63,7 @@ function Usuarios() {
 		return (
 			<div className="usersMenu">
 				<h1 className="usersGrid2">
-					¡Hola{auth.currentUser ? " " + auth.currentUser.displayName : ""}!
+					¡Hola{auth.currentUser.displayName ? " " + auth.currentUser.displayName : ""}!
 				</h1>
 				{auth.currentUser.photoURL ? (
 					<img src={auth.currentUser.photoURL} alt="Foto del usuario" />
