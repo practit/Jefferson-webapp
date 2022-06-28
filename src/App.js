@@ -30,7 +30,6 @@ function App() {
         setEditor(<WIP />)
     }
   }
-  console.log("App")
   return (
     <div className="App">
       <Sidebar selectEditor={selectEditor} />

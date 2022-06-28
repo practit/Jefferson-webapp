@@ -25,7 +25,6 @@ function Pedidos() {
     newMap.set(nanoid(), collections.pedido.plantilla({__editMode:1}));
     setPedidos(newMap)
   }
-  console.log("pedidos")
   return (
     <div className="editorPedidos">
       <button className='formBtn' onClick={newPedido}><FontAwesomeIcon icon={faPlus}/></button>
