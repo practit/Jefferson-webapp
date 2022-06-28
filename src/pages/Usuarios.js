@@ -8,6 +8,7 @@ const errorCodesStr = {
 	"auth/wrong-password": "La contraseña ingresada no es correcta.",
 	"auth/network-request-failed":
 		"No se ha podido conectar con la base de datos.",
+		"auth/too-many-requests":"Demasiadas peticiones de logueo, por favor espere unos minutos e intentelo nuevamente.",
 	"auth/logged-in": "Inició sesion exitosamente",
 	"auth/logged-out": "Cerró sesion exitosamente",
 };
