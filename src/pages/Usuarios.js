@@ -10,8 +10,8 @@ const errorCodesStr = {
 		"No se ha podido conectar con la base de datos.",
 	"auth/too-many-requests":
 		"Demasiadas peticiones de logueo, por favor espere unos minutos e intentelo nuevamente.",
-	"auth/logged-in": "Inició sesion exitosamente",
-	"auth/logged-out": "Cerró sesion exitosamente",
+	"auth/logged-in": "Inició sesión exitosamente",
+	"auth/logged-out": "Cerró sesión exitosamente",
 };
 // #region Idle control
 try {
@@ -39,7 +39,7 @@ function Usuarios() {
 	);
 	const [formData, setFormData] = useState({ user: "", passwd: "" });
 	const [errorCode, setErrorCode] = useState("");
-	// #region Function Handlers
+	// #region Event Handlers
 	function handleInput(e) {
 		setFormData((fd) => {
 			return { ...fd, [e.target.name]: e.target.value };
@@ -57,11 +57,12 @@ function Usuarios() {
 			})
 			.catch((e) => setErrorCode(e.code));
 	}
-	// #endregion Function Handlers
+	// #endregion Event Handlers
 	// #region Menu Editor
 	if (editorState === "menu" && auth.currentUser)
 		return (
 			<div className="usersMenu">
+
 				<h1 className="usersGrid2">
 					¡Hola{auth.currentUser.displayName ? " " + auth.currentUser.displayName : ""}!
 				</h1>
