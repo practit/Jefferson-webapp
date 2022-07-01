@@ -1,0 +1,6 @@
+{
+	"projects": {
+		"default": "jefferson-abd10"
+	},
+	"firestore": {}
+}

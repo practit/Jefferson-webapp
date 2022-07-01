@@ -1,0 +1,310 @@
+:root{
+  --primary_color:#f4c35c ;
+  --secondary_color:#f5ae11;
+  --background_color: firebrick;
+  --background_dark: #282c34;
+}
+/* #region WIP Editor */
+.App {
+  display: flex;
+  text-align: center;
+  color: white;
+  background-color: var(--background_dark);
+  min-height: 100vh;
+  background-color: #282c34;
+    opacity: 1;
+    background-image: linear-gradient(30deg, #363636 12%, transparent 12.5%, transparent 87%, #363636 87.5%, #363636), linear-gradient(150deg, #363636 12%, transparent 12.5%, transparent 87%, #363636 87.5%, #363636), linear-gradient(30deg, #363636 12%, transparent 12.5%, transparent 87%, #363636 87.5%, #363636), linear-gradient(150deg, #363636 12%, transparent 12.5%, transparent 87%, #363636 87.5%, #363636), linear-gradient(60deg, #36363677 25%, transparent 25.5%, transparent 75%, #36363677 75%, #36363677), linear-gradient(60deg, #36363677 25%, transparent 25.5%, transparent 75%, #36363677 75%, #36363677);
+    background-size: 38px 67px;
+    background-position: 0 0, 0 0, 19px 33px, 19px 33px, 0 0, 19px 33px;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.con-amors {
+  display: flex;
+  align-items: center;
+}
+
+.App-logo-pequenio {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  height: 5rem;
+  pointer-events: none;
+}
+
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* #endregion */
+/* #region sideBar */
+.button_like_logo {
+  background-color: var(--background_dark);
+  border-radius: 0.5rem;
+
+  height: min-content;
+  flex:1;
+}
+.sidebar {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: var(--primary_color);
+  margin: 0px;
+  padding: 0.5rem;
+  max-width: 2.5rem;
+  border-radius: 0px 0.5rem 0.5rem 0px;
+  justify-content: space-between;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: ease-in-out left 250ms;
+  z-index: 2;
+}
+.sidebarHidden{
+  left: -100vw;
+  position: fixed;
+}
+.sidebarReveal {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: var(--primary_color);
+  margin-bottom: 1.25rem;
+  margin: 0px;
+  padding: 0.25rem 0.25rem 0.25rem 0rem;
+  max-width: 2rem;
+  height: fit-content;
+  border-radius: 0px 0.5rem 0.5rem 0px;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left:-2rem;
+  z-index: 1;
+  transition: ease-in-out left 250ms;
+}
+.sidebarReveal:hover {
+  left:0;
+}
+.sidebarReveal_ul {
+  display: flex;
+  padding: 0px;
+  gap: 0.35rem;
+  margin: 0px;
+  flex-direction: column;
+  list-style: none;
+}
+.sidebarReveal_btn {
+  color: white;
+  padding: 0.25rem 0.25rem 0.25rem 0.5rem ;
+  border: none;
+  border-radius: 0.0rem 0.5rem 0.5rem 0.0rem;
+  aspect-ratio: 1/1;
+  align-content: center;
+  justify-content: center;
+  transition: ease-in-out background-color 50ms;
+}
+.sidebar_ul{
+  display: flex;
+  padding: 0px;
+  gap: 0.35rem;
+  flex-direction: column;
+  list-style: none;
+
+}
+.sidebar_btn,
+.sidebar_btn_2 {
+  color: white;
+  padding: 0.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  aspect-ratio: 1/1;
+  align-content: center;
+  justify-content: center;
+  transition: ease-in-out background-color 50ms;
+}
+.sidebar_btn,
+.sidebarReveal_btn {
+  background-color: var(--secondary_color);
+}
+.sidebar_btn_2{
+  background-color: transparent;
+}
+.sidebar_btn:hover,
+.sidebar_btn_2:hover,
+.sidebarReveal_btn:hover,
+.formBtn:hover,
+.formBtn2:hover{
+  background-color: var(--background_color);
+}
+.sidebar_btn:active,
+.sidebar_btn_2:active,
+.formBtn:active {
+  background-color: black;
+}
+.sidebar_li_icon{
+  width: 100%;
+  height: 100%;
+}
+/* #endregion */
+/* #region General */
+.Editor {
+  display: flex;
+  flex: 1 1;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+.loginForm {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: .5rem .25rem;
+}
+.formBtn {
+  grid-column-start: -3;
+  grid-column-end: -1;
+  background-color: var(--secondary_color);
+  color: white;
+  font-weight: bold;
+  padding: 0.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  align-content: center;
+  justify-content: center;
+  transition: ease-in-out background-color 50ms;
+}
+.formBtn2 {
+  background-color: var(--background_dark);
+  color: white;
+  font-weight: bold;
+  padding: 0.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  align-content: center;
+  justify-content: center;
+  transition: ease-in-out background-color 50ms;
+}
+.formcb {
+  grid-column-start: -3;
+  grid-column-end: -1;
+}
+/* #endregion */
+/* #region Editor Usuarios */
+.usersMenu {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: auto repeat(2);
+}
+.usersGrid2 {
+  grid-column-start: -3;
+  grid-column-end: -1;
+}
+.usersMenuButtons {
+  background-color: var(--background_dark);
+  color: white;
+  font-weight: bold;
+}
+
+/* #endregion Editor Usuarios */
+/* #region Editor Pedidos */
+.settingsForm {
+  display: flex;
+  flex-flow: column;
+}
+.editorPedidos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-basis: max-content;
+    padding: 2rem;
+}
+.PedidoBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: black;
+    background: var(--primary_color);
+    background: linear-gradient(180deg, var(--primary_color) 0%, var(--secondary_color) 100%);
+    padding: 1rem;
+    box-shadow: 3px 5px 5px rgb(0 0 0 / 25%);
+    flex: auto;
+    min-height: 100px;
+    transition: ease-in-out box-shadow 100ms;
+  }
+  .PedidoBox:hover{
+    box-shadow: 0px 0px 10px white;
+}
+.PedidoBoxButtons {
+    display: flex;
+    color: white;
+    padding: 0px;
+    gap: 0.35rem;
+    flex-direction: row;
+    list-style: none;
+    margin: 0px;
+    margin-bottom: 1rem;
+    justify-content: flex-end;
+  }
+.PedidoBoxButton{
+  aspect-ratio: 1/1;
+}
+.PedidoBoxButtonCheckbox {
+  border: none;
+}
+.PedidoBoxForm {
+  display: flex;
+  flex-direction: column;
+
+}
+.PedidoBoxFormEl {
+  flex: 1;
+  resize: none;
+  word-break: keep-all;
+  background: transparent;
+  border: none;
+  text-align: center;
+}
+.PedidoBoxFormEl[name=Nombre] {
+  font-size: x-large;
+  font-weight: bold;
+}
+.PedidoBoxContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: stretch;
+}
+/* #endregion */

@@ -1,0 +1,20 @@
+{
+  "short_name": "Jefferson App",
+  "name": "Jefferson Web App",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "jefferson_logo.png",
+      "type": "image/png",
+      "sizes": "782x686"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#f4c35c",
+  "background_color": "#282c34"
+}
