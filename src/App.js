@@ -7,24 +7,26 @@ import Pedidos from './pages/Pedidos';
 import Inicio from './pages/Inicio';
 import Usuarios from './pages/Usuarios';
 import WIP from './pages/WIP.js';
+import { EDITOR_ESTADISTICA, EDITOR_INFORMACION, EDITOR_INICIO, EDITOR_PEDIDOS, EDITOR_USUARIOS, EDITOR_WIP } from './modules/constants.mjs';
 function App() {
-  const [editor, setEditor] = useState(<Usuarios />)
+	const [availableEditors, setAvailableEditors] = useState([EDITOR_USUARIOS, EDITOR_WIP])
+	const [editor, setEditor] = useState(<Usuarios setAvailableEditors={setAvailableEditors}/>)
   function selectEditor(editor) {
     switch (editor) {
-      case "Inicio":
+      case EDITOR_INICIO:
         setEditor(<Inicio />)
         break;
-      case "Pedidos":
+      case EDITOR_PEDIDOS:
         setEditor(<Pedidos />)
         break;
-      case "Estadistica":
+      case EDITOR_ESTADISTICA:
         setEditor(<Estadistica />)
         break;
-      case "Informacion":
+      case EDITOR_INFORMACION:
         setEditor(<Informacion />)
         break;
-      case "Usuarios":
-        setEditor(<Usuarios />)
+      case EDITOR_USUARIOS:
+        setEditor(<Usuarios setAvailableEditors={setAvailableEditors}/>)
         break;
       default:
         setEditor(<WIP />)
@@ -32,7 +34,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Sidebar selectEditor={selectEditor} />
+      <Sidebar selectEditor={selectEditor} availableEditors={availableEditors} />
       <div className='Editor'>
         {editor}
       </div>

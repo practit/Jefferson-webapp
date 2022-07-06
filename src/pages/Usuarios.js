@@ -1,5 +1,6 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
+import { EDITOR_ESTADISTICA, EDITOR_INFORMACION, EDITOR_INICIO, EDITOR_PEDIDOS, EDITOR_USUARIOS, EDITOR_WIP } from "../modules/constants.mjs";
 import { auth } from "../modules/firebase/fbinstance.mjs";
 const errorCodesStr = {
 	"auth/missing-email": "El campo de e-mail está vacío.",
@@ -33,7 +34,7 @@ try {
 }
 
 // #endregion Idle control
-function Usuarios() {
+function Usuarios({setAvailableEditors}) {
 	const [editorState, seteditorState] = useState(
 		auth.currentUser ? "menu" : "login"
 	);
@@ -54,6 +55,14 @@ function Usuarios() {
 				console.log(e);
 				setErrorCode("auth/logged-in");
 				seteditorState("menu");
+				setAvailableEditors([
+					EDITOR_ESTADISTICA,
+					EDITOR_INFORMACION,
+					EDITOR_INICIO,
+					EDITOR_PEDIDOS,
+					EDITOR_USUARIOS,
+					EDITOR_WIP
+				]);
 			})
 			.catch((e) => setErrorCode(e.code));
 	}
@@ -82,6 +91,7 @@ function Usuarios() {
 						auth.signOut();
 						seteditorState("login");
 						setErrorCode("auth/logged-out");
+						setAvailableEditors([EDITOR_USUARIOS, EDITOR_WIP, EDITOR_INFORMACION])
 					}}
 				>
 					Cerrar Sesión

@@ -5,6 +5,7 @@ import SidebarBtn from './sidebar_btn'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import logo from '../jefferson_logo.png'
 import { useState } from 'react'
+import { EDITOR_ESTADISTICA, EDITOR_INFORMACION, EDITOR_INICIO, EDITOR_PEDIDOS } from '../modules/constants.mjs'
 function Sidebar(props) {
   const [sidebarClasses, setSidebarClasses] = useState('sidebar');
   function toggleNavbarHide() {
@@ -14,16 +15,17 @@ function Sidebar(props) {
         'sidebar sidebarHidden'
     )
   }
+  const conditionalBtn = (args, el) => props.availableEditors.includes(args) ? el : "";
   return (
     <>
     <div className={sidebarClasses}>
       <ul className='sidebar_ul'>
         {/* {/* TODO: (opcional) mostrar foto en la derecha */}
         {/* <li><img src={logo} className="button_like_logo" alt='Jefferson Logo'/></li> */}
-        <li><SidebarBtn icon={faHouse} value="Inicio" selectEditor={props.selectEditor}/></li>
-        <li><SidebarBtn icon ={faReceipt} value="Pedidos" selectEditor={props.selectEditor}/></li>
-        <li><SidebarBtn icon={faChartPie} value="Estadistica" selectEditor={props.selectEditor}/></li>
-        <li><SidebarBtn icon={faCircleInfo} value="Informacion" selectEditor={props.selectEditor}/></li>
+        {conditionalBtn(EDITOR_INICIO, <li><SidebarBtn icon={faHouse} value={EDITOR_INICIO} selectEditor={props.selectEditor} /></li>)}
+        {conditionalBtn(EDITOR_PEDIDOS,<li><SidebarBtn icon={faReceipt} value={EDITOR_PEDIDOS} selectEditor={props.selectEditor} /></li>)}
+        {conditionalBtn(EDITOR_ESTADISTICA, <li><SidebarBtn icon={faChartPie} value={EDITOR_ESTADISTICA} selectEditor={props.selectEditor} /></li>)}
+        {conditionalBtn(EDITOR_INFORMACION, <li><SidebarBtn icon={faCircleInfo} value={EDITOR_INFORMACION} selectEditor={props.selectEditor}/></li>)}
       </ul>
 
       <ul className='sidebar_ul'>
